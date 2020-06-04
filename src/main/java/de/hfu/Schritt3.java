@@ -3,7 +3,7 @@ import java.util.*;
 public class Schritt3{
 	/**
 	 *Dieses Programm ändert Klein in Großbuchstaben um. 
-	 *Leider funktioniert es nur mit einem String, daher is die if Bediengung unnötig.
+	 *Leider funktioniert es nur mit einem String, daher ist die if() Bediengung unnötig.
 	 *Ein dritter Kommentar!
 	 */
 	public static void main(String[] args) {
