@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+D:\AIN3-2020\OSSE\Prakikum\Blatt5\JavaProjekt_Aufg5_OSSE\.metadata\.plugins\org.eclipse.jdt.core
+2117314897.index
+1248545562.index
