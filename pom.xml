@@ -59,7 +59,7 @@ plugin>
 <archive>
 <manifest>
 <addClasspath>true</addClasspath>
-<mainClass>Schritt3</mainClass>
+<mainClass>de.hfu.Schritt3</mainClass>
 </manifest>
 </archive>
 </configuration>
