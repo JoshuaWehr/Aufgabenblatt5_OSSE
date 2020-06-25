@@ -15,7 +15,9 @@ public class Schritt3{
 			if(Character.isWhitespace(c))
 				System.out.println(" ");
 			else			
-			System.out.println(Character.toUpperCase(c));		
+			System.out.println(Character.toUpperCase(c));	
+			
+			scanner.close();
 		}
 	}
 }
