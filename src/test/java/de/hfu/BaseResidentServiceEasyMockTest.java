@@ -1,21 +1,17 @@
 package de.hfu;
 import static org.hamcrest.MatcherAssert.assertThat;
+
 import static org.hamcrest.Matchers.*;
 import static org.easymock.EasyMock.*;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
-
-import org.junit.Test;
+import org.junit.*;
 
 import de.hfu.residents.domain.Resident;
 import de.hfu.residents.repository.ResidentRepository;
-import de.hfu.residents.repository.ResidentRepositoryStub;
 //import de.hfu.residents.repository.ResidentRepositoryStub;
-import de.hfu.residents.service.BaseResidentService;
-import de.hfu.residents.service.ResidentServiceException;
-import junit.framework.Assert;
+import de.hfu.residents.service.*;
+
 
 public class BaseResidentServiceEasyMockTest {
 	private Resident josh;
@@ -34,7 +30,7 @@ public class BaseResidentServiceEasyMockTest {
     @Test
     public void testGetUniqueResident() throws Exception {
     	replay(testR);
-    	assertThat("Nico", equalTo(testBaseService.getUniqueResident(nico).getFamilyName()));
+    	assertThat(nico.getFamilyName(), equalTo(testBaseService.getUniqueResident(nico).getFamilyName()));
     	assertThat(josh.getFamilyName(), equalTo(testBaseService.getUniqueResident(josh).getFamilyName()));
         verify(testR);
     }
