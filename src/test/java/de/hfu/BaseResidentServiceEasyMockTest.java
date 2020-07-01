@@ -2,7 +2,11 @@ package de.hfu;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.easymock.EasyMock.*;
+
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
+
 import org.junit.*;
 import de.hfu.residents.domain.Resident;
 import de.hfu.residents.repository.ResidentRepository;
@@ -17,14 +21,19 @@ public class BaseResidentServiceEasyMockTest {
 	public BaseResidentServiceEasyMockTest() {
 		this.nico=new Resident("Nico","Dietz","Teststrasse","Furtwangen",new Date(2017-02-02));
 		this.josh = new Resident("Joshua","Wehr","Teststrasse","Furtwangen",new Date(1804-12-05));
-		this.testR=createMock(ResidentRepository.class);
+		List<Resident> residents = Arrays.asList(this.nico, this.josh);
+		this.testR= createMock(ResidentRepository.class);
+		
+		expect(testR.getResidents()).andReturn(residents);
 		testBaseService.setResidentRepository(testR);
+		
 		replay(testR);
 	}
     @Test
     public void testGetUniqueResident() throws Exception {
-    	assertThat(nico.getFamilyName(), equalTo(testBaseService.getUniqueResident(nico).getFamilyName()));
-    	assertThat(josh.getFamilyName(), equalTo(testBaseService.getUniqueResident(josh).getFamilyName()));
+    	Resident gesucht=new Resident("Joshua","Wehr","Teststrasse","Furtwangen",new Date(1804-12-05));
+    	
+    	assertThat(gesucht.getFamilyName(), equalTo(testBaseService.getUniqueResident(gesucht).getFamilyName()));
         verify(testR);
     }
 }
