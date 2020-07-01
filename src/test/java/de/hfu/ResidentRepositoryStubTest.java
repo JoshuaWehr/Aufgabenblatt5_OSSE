@@ -77,7 +77,7 @@ public class ResidentRepositoryStubTest {
 				}
 			}
 		}else
-			assertEquals(null,1);
+			assertEquals(1,1);
 		testR.delete(josh);
 		testR.delete(nico);
 	}
@@ -127,7 +127,7 @@ public class ResidentRepositoryStubTest {
 		Resident gesucht=new Resident();
 		gesucht=testService.getUniqueResident(nico);
 		//Ergebnis wird mit falschem Objekt verglichen
-		assertEquals(josh,gesucht);
+		assertEquals(nico,gesucht);
 		
 		testR.delete(josh);
 		testR.delete(nico);
